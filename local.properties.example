@@ -1,0 +1,6 @@
+## Copy to local.properties. Android Studio writes sdk.dir for you.
+# sdk.dir=C:\\Users\\you\\AppData\\Local\\Android\\Sdk
+
+## Spotify Dashboard client id. Leave blank to build the phone-library session only.
+## Rebuild the debug APK after changing this. Do not put a client secret here.
+spotify.client.id=
