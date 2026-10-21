@@ -43,8 +43,8 @@
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
                 <data
-                    android:host="${redirectHost}"
-                    android:scheme="${redirectScheme}" />
+                    android:host="callback"
+                    android:scheme="com.friendsvibe.autopilot" />
             </intent-filter>
         </activity>
 

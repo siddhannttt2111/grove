@@ -1,6 +1,14 @@
 package com.friendsvibe.autopilot.ui
 
 import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.background
+import androidx.compose.foundation.border
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.graphics.Color
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
@@ -35,11 +43,11 @@ fun ActionButton(
         onClick = onClick,
         enabled = enabled,
         modifier = modifier.height(48.dp),
-        shape = RoundedCornerShape(4.dp),
-        border = BorderStroke(1.dp, if (destructive) Clay else Line),
+        shape = RoundedCornerShape(999.dp),
+        border = BorderStroke(1.dp, if (destructive) Clay else Amber.copy(alpha = 0.35f)),
         colors = ButtonDefaults.outlinedButtonColors(
-            containerColor = Panel,
-            contentColor = if (destructive) Clay else Paper,
+            containerColor = if (destructive) Wash else Panel,
+            contentColor = if (destructive) Clay else Amber,
             disabledContentColor = Mist,
         ),
     ) {
@@ -73,8 +81,28 @@ fun SetScreen(
     ) {
         item {
             TextButton(onClick = onBack, contentPadding = PaddingValues(0.dp)) {
-                Text("Back", color = Mist, style = MaterialTheme.typography.labelLarge)
+                Text("Close", color = Mist, style = MaterialTheme.typography.labelLarge)
             }
+            Box(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(280.dp)
+                    .clip(RoundedCornerShape(28.dp))
+                    .background(Wash)
+                    .border(1.dp, Amber.copy(alpha = 0.16f), RoundedCornerShape(28.dp)),
+                contentAlignment = Alignment.Center,
+            ) {
+                Box(
+                    Modifier
+                        .size(72.dp)
+                        .clip(CircleShape)
+                        .background(Amber),
+                    contentAlignment = Alignment.Center,
+                ) {
+                    Text(if (playing) "II" else "▶", color = Color.White, style = MaterialTheme.typography.titleLarge)
+                }
+            }
+            Spacer(Modifier.height(8.dp))
             Text(sourceLabel.uppercase(), color = Amber, style = MaterialTheme.typography.labelLarge)
             Text(title, style = MaterialTheme.typography.headlineMedium, color = Paper, maxLines = 3, overflow = TextOverflow.Ellipsis)
             Text(artist, style = MaterialTheme.typography.bodyLarge, color = Mist)
