@@ -14,5 +14,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "Grove"
+rootProject.name = "FriendsVibe"
 include(":app")

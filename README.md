@@ -1,29 +1,17 @@
-# Grove
+# Friends Vibe
 
-Grove is a friends-only Android autopilot. Pick one song and it keeps a set in that vibe.
+Pick one song. The set continues.
 
-The phone library plays inside Grove, with a short fade between songs. Spotify Premium plays inside the Spotify app. Grove searches and queues a similar session there. It does not download, analyze, or mix Spotify audio.
+There are two sessions, and only one plays at a time:
 
-YouTube and Amazon Music do not offer a way for another app to keep a set going, so they are not in this build.
+- **Phone library.** Reads audio on the device, ranks the rest from artist, album, genre, folder, and a simple tempo when tags are missing, then crossfades the queue. Pause, skip, calmer, harder, and ban artist are on the set screen.
+- **Spotify.** Allowlisted Premium listeners, with the Spotify app installed. The app searches and queues track URIs through Spotify App Remote and the Auth library. Spotify keeps the audio. Nothing from Spotify is downloaded, analyzed, or mixed.
 
-## Run it
+Sharing a debug APK, the 5-person Development Mode allowlist, the redirect URI, and the debug SHA-1 are written up in [docs/FRIEND_SHARE.md](docs/FRIEND_SHARE.md).
 
-Open the `DJ` folder in Android Studio, or build from this folder:
-
+```powershell
+.\gradlew.bat :app:assembleDebug
+.\gradlew.bat :app:testDebugUnitTest
 ```
-gradlew.bat assembleDebug
-```
 
-The APK is `app/build/outputs/apk/debug/app-debug.apk`. Share that file with friends and install it on the phone. Android will ask for permission to install an app that did not come from the Play Store.
-
-On first launch, allow music access. Songs already stored on the phone show up under Discover and Library. Tap one to start the set. Calmer, Harder, and Ban artist reshape what comes next. Phone fade is in Settings.
-
-## Spotify, for up to five people
-
-1. Create an app at [Spotify for Developers](https://developer.spotify.com/dashboard).
-2. Add the redirect URI `grove://callback`.
-3. Paste the client id into Grove Settings, or into `local.properties` as `SPOTIFY_CLIENT_ID=` before you build.
-4. In the dashboard, add each friend under Users. Development mode allows 5 accounts, and the app owner needs Spotify Premium.
-5. Each person needs the Spotify app and Premium. Open Spotify once, then connect it in Grove Settings and start a song from the Spotify search tab.
-
-A new Spotify app cannot ask Spotify for audio features or automatic recommendations. Grove continues a Spotify set from the same artist and nearby titles.
+The debug APK is `app\build\outputs\apk\debug\app-debug.apk`. Put `spotify.client.id` in `local.properties` before building a Spotify session. See `local.properties.example`.

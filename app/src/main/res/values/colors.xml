@@ -1,4 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="ink">#FF14120E</color>
-    <color name="amber">#FFE39B3A</color>
+    <color name="ink">#FFFFFFFF</color>
+    <color name="moss">#FF1B7A45</color>
 </resources>

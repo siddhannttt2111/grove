@@ -2,7 +2,7 @@ package com.friendsvibe.autopilot.ui
 
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Typography
-import androidx.compose.material3.darkColorScheme
+import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
@@ -10,21 +10,23 @@ import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
 
-val Ink = Color(0xFF14120E)
-val Paper = Color(0xFFF3EBDD)
-val Amber = Color(0xFFE39B3A)
-val Clay = Color(0xFFD4654A)
-val Mist = Color(0xFFA89B8C)
-val Panel = Color(0xFF221F1A)
-val Line = Color(0xFF3A342C)
-val Calm = Color(0xFF8FB3AC)
+val Ink = Color(0xFFFFFFFF)
+val Paper = Color(0xFF14241A)
+val Amber = Color(0xFF1B7A45)
+val Clay = Color(0xFF0F4D2C)
+val Mist = Color(0xFF5E6B63)
+val Panel = Color(0xCCFFFFFF)
+val Line = Color(0xFFD5E3DA)
+val Calm = Color(0xFF3E8F5A)
+val Wash = Color(0xFFE7F3EB)
 
-private val scheme = darkColorScheme(
+private val scheme = lightColorScheme(
     background = Ink,
-    surface = Panel,
+    surface = Ink,
     primary = Amber,
-    onPrimary = Ink,
+    onPrimary = Color.White,
     secondary = Calm,
+    onSecondary = Color.White,
     onBackground = Paper,
     onSurface = Paper,
     error = Clay,
@@ -33,20 +35,21 @@ private val scheme = darkColorScheme(
 
 private val typography = Typography(
     displaySmall = TextStyle(
-        fontFamily = FontFamily.Serif,
-        fontWeight = FontWeight.Normal,
-        fontSize = 40.sp,
-        lineHeight = 44.sp,
+        fontFamily = FontFamily.SansSerif,
+        fontWeight = FontWeight.SemiBold,
+        fontSize = 34.sp,
+        lineHeight = 38.sp,
+        letterSpacing = (-0.4).sp,
     ),
     headlineMedium = TextStyle(
-        fontFamily = FontFamily.Serif,
-        fontWeight = FontWeight.Normal,
+        fontFamily = FontFamily.SansSerif,
+        fontWeight = FontWeight.SemiBold,
         fontSize = 28.sp,
         lineHeight = 32.sp,
     ),
     titleLarge = TextStyle(
-        fontFamily = FontFamily.Serif,
-        fontWeight = FontWeight.Normal,
+        fontFamily = FontFamily.SansSerif,
+        fontWeight = FontWeight.SemiBold,
         fontSize = 22.sp,
         lineHeight = 26.sp,
     ),
@@ -63,8 +66,8 @@ private val typography = Typography(
     labelLarge = TextStyle(
         fontFamily = FontFamily.SansSerif,
         fontWeight = FontWeight.Medium,
-        fontSize = 13.sp,
-        letterSpacing = 1.1.sp,
+        fontSize = 12.sp,
+        letterSpacing = 1.2.sp,
     ),
 )
 
